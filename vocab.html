@@ -53,6 +53,7 @@
         <div class="vocab-reading" id="vocab-reading"></div>
       </div>
       <div class="vocab-card-back">
+        <div class="vocab-back-reading" id="vocab-back-reading"></div>
         <div class="vocab-meaning" id="vocab-meaning"></div>
         <div class="vocab-example" id="vocab-example"></div>
         <div class="vocab-example-meaning" id="vocab-example-meaning"></div>
@@ -132,6 +133,7 @@ function showCard() {
   document.getElementById('vocab-card').classList.remove('vocab-card-flipped');
   document.getElementById('vocab-word').textContent = card.word;
   document.getElementById('vocab-reading').textContent = card.reading !== card.word ? card.reading : '';
+  document.getElementById('vocab-back-reading').textContent = card.reading;
   document.getElementById('vocab-meaning').textContent = card.meaning;
   document.getElementById('vocab-example').textContent = card.example;
   document.getElementById('vocab-example-meaning').textContent = card.example_meaning;
