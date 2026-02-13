@@ -7,7 +7,7 @@
         {
           "word": "こんにちは",
           "reading": "こんにちは",
-          "romaji": "konnichiwa",
+          "romaji": "곤니치와",
           "meaning": "안녕하세요 (낮인사)",
           "example": "こんにちは、元気ですか。",
           "example_meaning": "안녕하세요, 잘 지내세요?"
@@ -15,7 +15,7 @@
         {
           "word": "おはようございます",
           "reading": "おはようございます",
-          "romaji": "ohayou gozaimasu",
+          "romaji": "오하요- 고자이마스",
           "meaning": "안녕하세요 (아침인사)",
           "example": "おはようございます、いい天気ですね。",
           "example_meaning": "안녕하세요, 좋은 날씨네요."
@@ -23,7 +23,7 @@
         {
           "word": "こんばんは",
           "reading": "こんばんは",
-          "romaji": "konbanwa",
+          "romaji": "곤반와",
           "meaning": "안녕하세요 (저녁인사)",
           "example": "こんばんは、お元気ですか。",
           "example_meaning": "안녕하세요, 잘 지내세요?"
@@ -31,7 +31,7 @@
         {
           "word": "さようなら",
           "reading": "さようなら",
-          "romaji": "sayounara",
+          "romaji": "사요-나라",
           "meaning": "안녕히 가세요 / 안녕히 계세요",
           "example": "さようなら、また明日。",
           "example_meaning": "안녕, 또 내일 봐요."
@@ -39,7 +39,7 @@
         {
           "word": "ありがとうございます",
           "reading": "ありがとうございます",
-          "romaji": "arigatou gozaimasu",
+          "romaji": "아리가토- 고자이마스",
           "meaning": "감사합니다",
           "example": "プレゼントをありがとうございます。",
           "example_meaning": "선물 감사합니다."
@@ -47,7 +47,7 @@
         {
           "word": "すみません",
           "reading": "すみません",
-          "romaji": "sumimasen",
+          "romaji": "스미마셍",
           "meaning": "실례합니다 / 죄송합니다",
           "example": "すみません、トイレはどこですか。",
           "example_meaning": "실례합니다, 화장실은 어디입니까?"
@@ -55,7 +55,7 @@
         {
           "word": "はい",
           "reading": "はい",
-          "romaji": "hai",
+          "romaji": "하이",
           "meaning": "네",
           "example": "はい、わかりました。",
           "example_meaning": "네, 알겠습니다."
@@ -63,7 +63,7 @@
         {
           "word": "いいえ",
           "reading": "いいえ",
-          "romaji": "iie",
+          "romaji": "이이에",
           "meaning": "아니요",
           "example": "いいえ、違います。",
           "example_meaning": "아니요, 다릅니다."
@@ -71,7 +71,7 @@
         {
           "word": "お願いします",
           "reading": "おねがいします",
-          "romaji": "onegaishimasu",
+          "romaji": "오네가이시마스",
           "meaning": "부탁합니다",
           "example": "コーヒーをお願いします。",
           "example_meaning": "커피를 부탁합니다."
@@ -79,7 +79,7 @@
         {
           "word": "元気",
           "reading": "げんき",
-          "romaji": "genki",
+          "romaji": "겐키",
           "meaning": "건강한, 활기찬",
           "example": "お元気ですか。",
           "example_meaning": "잘 지내세요?"
@@ -87,7 +87,7 @@
         {
           "word": "大丈夫",
           "reading": "だいじょうぶ",
-          "romaji": "daijoubu",
+          "romaji": "다이조-부",
           "meaning": "괜찮다",
           "example": "大丈夫ですか。",
           "example_meaning": "괜찮으세요?"
@@ -95,7 +95,7 @@
         {
           "word": "おやすみなさい",
           "reading": "おやすみなさい",
-          "romaji": "oyasuminasai",
+          "romaji": "오야스미나사이",
           "meaning": "안녕히 주무세요",
           "example": "おやすみなさい、いい夢を。",
           "example_meaning": "안녕히 주무세요, 좋은 꿈 꾸세요."
@@ -103,7 +103,7 @@
         {
           "word": "いただきます",
           "reading": "いただきます",
-          "romaji": "itadakimasu",
+          "romaji": "이타다키마스",
           "meaning": "잘 먹겠습니다",
           "example": "いただきます、おいしそうですね。",
           "example_meaning": "잘 먹겠습니다, 맛있어 보이네요."
@@ -111,7 +111,7 @@
         {
           "word": "ごちそうさまでした",
           "reading": "ごちそうさまでした",
-          "romaji": "gochisousama deshita",
+          "romaji": "고치소-사마데시타",
           "meaning": "잘 먹었습니다",
           "example": "ごちそうさまでした、おいしかったです。",
           "example_meaning": "잘 먹었습니다, 맛있었습니다."
@@ -119,7 +119,7 @@
         {
           "word": "はじめまして",
           "reading": "はじめまして",
-          "romaji": "hajimemashite",
+          "romaji": "하지메마시테",
           "meaning": "처음 뵙겠습니다",
           "example": "はじめまして、田中です。",
           "example_meaning": "처음 뵙겠습니다, 다나카입니다."
@@ -133,7 +133,7 @@
         {
           "word": "一",
           "reading": "いち",
-          "romaji": "ichi",
+          "romaji": "이치",
           "meaning": "일, 하나",
           "example": "りんごが一つあります。",
           "example_meaning": "사과가 하나 있습니다."
@@ -141,7 +141,7 @@
         {
           "word": "二",
           "reading": "に",
-          "romaji": "ni",
+          "romaji": "니",
           "meaning": "이, 둘",
           "example": "猫が二匹います。",
           "example_meaning": "고양이가 두 마리 있습니다."
@@ -149,7 +149,7 @@
         {
           "word": "三",
           "reading": "さん",
-          "romaji": "san",
+          "romaji": "산",
           "meaning": "삼, 셋",
           "example": "三人で行きます。",
           "example_meaning": "세 명이서 갑니다."
@@ -157,7 +157,7 @@
         {
           "word": "四",
           "reading": "よん",
-          "romaji": "yon",
+          "romaji": "욘",
           "meaning": "사, 넷",
           "example": "四時に会いましょう。",
           "example_meaning": "네 시에 만납시다."
@@ -165,7 +165,7 @@
         {
           "word": "五",
           "reading": "ご",
-          "romaji": "go",
+          "romaji": "고",
           "meaning": "오, 다섯",
           "example": "五月は暖かいです。",
           "example_meaning": "5월은 따뜻합니다."
@@ -173,7 +173,7 @@
         {
           "word": "百",
           "reading": "ひゃく",
-          "romaji": "hyaku",
+          "romaji": "햐쿠",
           "meaning": "백",
           "example": "百円のジュースを買いました。",
           "example_meaning": "백 엔짜리 주스를 샀습니다."
@@ -181,7 +181,7 @@
         {
           "word": "千",
           "reading": "せん",
-          "romaji": "sen",
+          "romaji": "셍",
           "meaning": "천",
           "example": "この本は千円です。",
           "example_meaning": "이 책은 천 엔입니다."
@@ -189,7 +189,7 @@
         {
           "word": "今日",
           "reading": "きょう",
-          "romaji": "kyou",
+          "romaji": "쿄-",
           "meaning": "오늘",
           "example": "今日は日曜日です。",
           "example_meaning": "오늘은 일요일입니다."
@@ -197,7 +197,7 @@
         {
           "word": "明日",
           "reading": "あした",
-          "romaji": "ashita",
+          "romaji": "아시타",
           "meaning": "내일",
           "example": "明日、学校に行きます。",
           "example_meaning": "내일 학교에 갑니다."
@@ -205,7 +205,7 @@
         {
           "word": "昨日",
           "reading": "きのう",
-          "romaji": "kinou",
+          "romaji": "키노-",
           "meaning": "어제",
           "example": "昨日、映画を見ました。",
           "example_meaning": "어제 영화를 봤습니다."
@@ -213,7 +213,7 @@
         {
           "word": "時",
           "reading": "じ",
-          "romaji": "ji",
+          "romaji": "지",
           "meaning": "시 (시간 단위)",
           "example": "今、三時です。",
           "example_meaning": "지금 세 시입니다."
@@ -221,7 +221,7 @@
         {
           "word": "分",
           "reading": "ふん",
-          "romaji": "fun",
+          "romaji": "훈",
           "meaning": "분 (시간 단위)",
           "example": "十五分かかります。",
           "example_meaning": "15분 걸립니다."
@@ -229,7 +229,7 @@
         {
           "word": "午前",
           "reading": "ごぜん",
-          "romaji": "gozen",
+          "romaji": "고젠",
           "meaning": "오전",
           "example": "午前九時に起きます。",
           "example_meaning": "오전 9시에 일어납니다."
@@ -237,7 +237,7 @@
         {
           "word": "午後",
           "reading": "ごご",
-          "romaji": "gogo",
+          "romaji": "고고",
           "meaning": "오후",
           "example": "午後から雨が降ります。",
           "example_meaning": "오후부터 비가 옵니다."
@@ -245,7 +245,7 @@
         {
           "word": "毎日",
           "reading": "まいにち",
-          "romaji": "mainichi",
+          "romaji": "마이니치",
           "meaning": "매일",
           "example": "毎日、日本語を勉強します。",
           "example_meaning": "매일 일본어를 공부합니다."
@@ -259,7 +259,7 @@
         {
           "word": "私",
           "reading": "わたし",
-          "romaji": "watashi",
+          "romaji": "와타시",
           "meaning": "나, 저",
           "example": "私は韓国人です。",
           "example_meaning": "저는 한국 사람입니다."
@@ -267,7 +267,7 @@
         {
           "word": "あなた",
           "reading": "あなた",
-          "romaji": "anata",
+          "romaji": "아나타",
           "meaning": "당신, 너",
           "example": "あなたの名前は何ですか。",
           "example_meaning": "당신의 이름은 무엇입니까?"
@@ -275,7 +275,7 @@
         {
           "word": "先生",
           "reading": "せんせい",
-          "romaji": "sensei",
+          "romaji": "센세-",
           "meaning": "선생님",
           "example": "先生は優しいです。",
           "example_meaning": "선생님은 친절합니다."
@@ -283,7 +283,7 @@
         {
           "word": "学生",
           "reading": "がくせい",
-          "romaji": "gakusei",
+          "romaji": "가쿠세-",
           "meaning": "학생",
           "example": "私は大学の学生です。",
           "example_meaning": "저는 대학 학생입니다."
@@ -291,7 +291,7 @@
         {
           "word": "父",
           "reading": "ちち",
-          "romaji": "chichi",
+          "romaji": "치치",
           "meaning": "아버지 (자기 아버지)",
           "example": "父は会社員です。",
           "example_meaning": "아버지는 회사원입니다."
@@ -299,7 +299,7 @@
         {
           "word": "母",
           "reading": "はは",
-          "romaji": "haha",
+          "romaji": "하하",
           "meaning": "어머니 (자기 어머니)",
           "example": "母は料理が上手です。",
           "example_meaning": "어머니는 요리를 잘합니다."
@@ -307,7 +307,7 @@
         {
           "word": "兄",
           "reading": "あに",
-          "romaji": "ani",
+          "romaji": "아니",
           "meaning": "형, 오빠 (자기 형/오빠)",
           "example": "兄は東京に住んでいます。",
           "example_meaning": "형은 도쿄에 살고 있습니다."
@@ -315,7 +315,7 @@
         {
           "word": "姉",
           "reading": "あね",
-          "romaji": "ane",
+          "romaji": "아네",
           "meaning": "누나, 언니 (자기 누나/언니)",
           "example": "姉は看護師です。",
           "example_meaning": "누나는 간호사입니다."
@@ -323,7 +323,7 @@
         {
           "word": "弟",
           "reading": "おとうと",
-          "romaji": "otouto",
+          "romaji": "오토-토",
           "meaning": "남동생",
           "example": "弟は高校生です。",
           "example_meaning": "남동생은 고등학생입니다."
@@ -331,7 +331,7 @@
         {
           "word": "妹",
           "reading": "いもうと",
-          "romaji": "imouto",
+          "romaji": "이모-토",
           "meaning": "여동생",
           "example": "妹は十歳です。",
           "example_meaning": "여동생은 열 살입니다."
@@ -339,7 +339,7 @@
         {
           "word": "友達",
           "reading": "ともだち",
-          "romaji": "tomodachi",
+          "romaji": "토모다치",
           "meaning": "친구",
           "example": "友達と公園に行きました。",
           "example_meaning": "친구와 공원에 갔습니다."
@@ -347,7 +347,7 @@
         {
           "word": "子供",
           "reading": "こども",
-          "romaji": "kodomo",
+          "romaji": "코도모",
           "meaning": "아이, 자녀",
           "example": "子供が三人います。",
           "example_meaning": "아이가 세 명 있습니다."
@@ -355,7 +355,7 @@
         {
           "word": "男の子",
           "reading": "おとこのこ",
-          "romaji": "otokonoko",
+          "romaji": "오토코노코",
           "meaning": "남자아이",
           "example": "男の子がサッカーをしています。",
           "example_meaning": "남자아이가 축구를 하고 있습니다."
@@ -363,7 +363,7 @@
         {
           "word": "女の子",
           "reading": "おんなのこ",
-          "romaji": "onnanoko",
+          "romaji": "온나노코",
           "meaning": "여자아이",
           "example": "女の子が絵を描いています。",
           "example_meaning": "여자아이가 그림을 그리고 있습니다."
@@ -371,7 +371,7 @@
         {
           "word": "人",
           "reading": "ひと",
-          "romaji": "hito",
+          "romaji": "히토",
           "meaning": "사람",
           "example": "あの人は誰ですか。",
           "example_meaning": "저 사람은 누구입니까?"
@@ -385,7 +385,7 @@
         {
           "word": "学校",
           "reading": "がっこう",
-          "romaji": "gakkou",
+          "romaji": "갓코-",
           "meaning": "학교",
           "example": "学校は家から近いです。",
           "example_meaning": "학교는 집에서 가깝습니다."
@@ -393,7 +393,7 @@
         {
           "word": "駅",
           "reading": "えき",
-          "romaji": "eki",
+          "romaji": "에키",
           "meaning": "역",
           "example": "駅まで歩いて十分です。",
           "example_meaning": "역까지 걸어서 10분입니다."
@@ -401,7 +401,7 @@
         {
           "word": "病院",
           "reading": "びょういん",
-          "romaji": "byouin",
+          "romaji": "뵤-인",
           "meaning": "병원",
           "example": "病院に行かなければなりません。",
           "example_meaning": "병원에 가야 합니다."
@@ -409,7 +409,7 @@
         {
           "word": "会社",
           "reading": "かいしゃ",
-          "romaji": "kaisha",
+          "romaji": "카이샤",
           "meaning": "회사",
           "example": "会社は九時に始まります。",
           "example_meaning": "회사는 9시에 시작합니다."
@@ -417,7 +417,7 @@
         {
           "word": "家",
           "reading": "いえ",
-          "romaji": "ie",
+          "romaji": "이에",
           "meaning": "집",
           "example": "家でテレビを見ます。",
           "example_meaning": "집에서 텔레비전을 봅니다."
@@ -425,7 +425,7 @@
         {
           "word": "上",
           "reading": "うえ",
-          "romaji": "ue",
+          "romaji": "우에",
           "meaning": "위",
           "example": "本は机の上にあります。",
           "example_meaning": "책은 책상 위에 있습니다."
@@ -433,7 +433,7 @@
         {
           "word": "下",
           "reading": "した",
-          "romaji": "shita",
+          "romaji": "시타",
           "meaning": "아래",
           "example": "猫がテーブルの下にいます。",
           "example_meaning": "고양이가 테이블 아래에 있습니다."
@@ -441,7 +441,7 @@
         {
           "word": "右",
           "reading": "みぎ",
-          "romaji": "migi",
+          "romaji": "미기",
           "meaning": "오른쪽",
           "example": "右に曲がってください。",
           "example_meaning": "오른쪽으로 돌아주세요."
@@ -449,7 +449,7 @@
         {
           "word": "左",
           "reading": "ひだり",
-          "romaji": "hidari",
+          "romaji": "히다리",
           "meaning": "왼쪽",
           "example": "銀行は左にあります。",
           "example_meaning": "은행은 왼쪽에 있습니다."
@@ -457,7 +457,7 @@
         {
           "word": "中",
           "reading": "なか",
-          "romaji": "naka",
+          "romaji": "나카",
           "meaning": "안, 가운데",
           "example": "箱の中に何がありますか。",
           "example_meaning": "상자 안에 무엇이 있습니까?"
@@ -465,7 +465,7 @@
         {
           "word": "外",
           "reading": "そと",
-          "romaji": "soto",
+          "romaji": "소토",
           "meaning": "밖, 바깥",
           "example": "外は寒いです。",
           "example_meaning": "밖은 춥습니다."
@@ -473,7 +473,7 @@
         {
           "word": "前",
           "reading": "まえ",
-          "romaji": "mae",
+          "romaji": "마에",
           "meaning": "앞",
           "example": "駅の前にコンビニがあります。",
           "example_meaning": "역 앞에 편의점이 있습니다."
@@ -481,7 +481,7 @@
         {
           "word": "後ろ",
           "reading": "うしろ",
-          "romaji": "ushiro",
+          "romaji": "우시로",
           "meaning": "뒤",
           "example": "後ろを見てください。",
           "example_meaning": "뒤를 봐주세요."
@@ -489,7 +489,7 @@
         {
           "word": "近く",
           "reading": "ちかく",
-          "romaji": "chikaku",
+          "romaji": "치카쿠",
           "meaning": "근처, 가까이",
           "example": "近くにスーパーがあります。",
           "example_meaning": "근처에 슈퍼마켓이 있습니다."
@@ -497,7 +497,7 @@
         {
           "word": "図書館",
           "reading": "としょかん",
-          "romaji": "toshokan",
+          "romaji": "토쇼칸",
           "meaning": "도서관",
           "example": "図書館で本を借りました。",
           "example_meaning": "도서관에서 책을 빌렸습니다."
@@ -511,7 +511,7 @@
         {
           "word": "水",
           "reading": "みず",
-          "romaji": "mizu",
+          "romaji": "미즈",
           "meaning": "물",
           "example": "水をください。",
           "example_meaning": "물을 주세요."
@@ -519,7 +519,7 @@
         {
           "word": "食べる",
           "reading": "たべる",
-          "romaji": "taberu",
+          "romaji": "타베루",
           "meaning": "먹다",
           "example": "朝ご飯を食べます。",
           "example_meaning": "아침밥을 먹습니다."
@@ -527,7 +527,7 @@
         {
           "word": "飲む",
           "reading": "のむ",
-          "romaji": "nomu",
+          "romaji": "노무",
           "meaning": "마시다",
           "example": "お茶を飲みます。",
           "example_meaning": "차를 마십니다."
@@ -535,7 +535,7 @@
         {
           "word": "朝ご飯",
           "reading": "あさごはん",
-          "romaji": "asagohan",
+          "romaji": "아사고한",
           "meaning": "아침밥, 아침식사",
           "example": "毎日、朝ご飯を食べます。",
           "example_meaning": "매일 아침밥을 먹습니다."
@@ -543,7 +543,7 @@
         {
           "word": "昼ご飯",
           "reading": "ひるごはん",
-          "romaji": "hirugohan",
+          "romaji": "히루고한",
           "meaning": "점심밥, 점심식사",
           "example": "昼ご飯は何を食べますか。",
           "example_meaning": "점심은 무엇을 먹습니까?"
@@ -551,7 +551,7 @@
         {
           "word": "晩ご飯",
           "reading": "ばんごはん",
-          "romaji": "bangohan",
+          "romaji": "반고한",
           "meaning": "저녁밥, 저녁식사",
           "example": "晩ご飯を作ります。",
           "example_meaning": "저녁밥을 만듭니다."
@@ -559,7 +559,7 @@
         {
           "word": "肉",
           "reading": "にく",
-          "romaji": "niku",
+          "romaji": "니쿠",
           "meaning": "고기",
           "example": "肉が好きです。",
           "example_meaning": "고기를 좋아합니다."
@@ -567,7 +567,7 @@
         {
           "word": "魚",
           "reading": "さかな",
-          "romaji": "sakana",
+          "romaji": "사카나",
           "meaning": "생선, 물고기",
           "example": "魚を焼きます。",
           "example_meaning": "생선을 굽습니다."
@@ -575,7 +575,7 @@
         {
           "word": "野菜",
           "reading": "やさい",
-          "romaji": "yasai",
+          "romaji": "야사이",
           "meaning": "채소, 야채",
           "example": "野菜をたくさん食べてください。",
           "example_meaning": "채소를 많이 드세요."
@@ -583,7 +583,7 @@
         {
           "word": "果物",
           "reading": "くだもの",
-          "romaji": "kudamono",
+          "romaji": "쿠다모노",
           "meaning": "과일",
           "example": "果物の中でりんごが一番好きです。",
           "example_meaning": "과일 중에서 사과를 가장 좋아합니다."
@@ -591,7 +591,7 @@
         {
           "word": "卵",
           "reading": "たまご",
-          "romaji": "tamago",
+          "romaji": "타마고",
           "meaning": "달걀, 계란",
           "example": "卵を二つ買いました。",
           "example_meaning": "달걀을 두 개 샀습니다."
@@ -599,7 +599,7 @@
         {
           "word": "お茶",
           "reading": "おちゃ",
-          "romaji": "ocha",
+          "romaji": "오챠",
           "meaning": "차 (녹차)",
           "example": "お茶を一杯いかがですか。",
           "example_meaning": "차 한 잔 어떠세요?"
@@ -607,7 +607,7 @@
         {
           "word": "料理",
           "reading": "りょうり",
-          "romaji": "ryouri",
+          "romaji": "료-리",
           "meaning": "요리",
           "example": "日本料理が好きです。",
           "example_meaning": "일본 요리를 좋아합니다."
@@ -615,7 +615,7 @@
         {
           "word": "買う",
           "reading": "かう",
-          "romaji": "kau",
+          "romaji": "카우",
           "meaning": "사다",
           "example": "スーパーで牛乳を買います。",
           "example_meaning": "슈퍼마켓에서 우유를 삽니다."
@@ -623,7 +623,7 @@
         {
           "word": "作る",
           "reading": "つくる",
-          "romaji": "tsukuru",
+          "romaji": "츠쿠루",
           "meaning": "만들다",
           "example": "ケーキを作りました。",
           "example_meaning": "케이크를 만들었습니다."
