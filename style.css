@@ -1482,11 +1482,12 @@ body {
   margin-top: 0.5rem;
 }
 .vocab-back-reading {
-  font-size: 1.2rem;
-  font-family: 'Noto Sans JP', sans-serif;
-  color: var(--text-muted);
+  font-size: 1.3rem;
+  font-family: var(--font-mono);
+  color: var(--accent);
   text-align: center;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
 }
 .vocab-meaning {
   font-size: 1.8rem;

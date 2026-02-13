@@ -133,7 +133,7 @@ function showCard() {
   document.getElementById('vocab-card').classList.remove('vocab-card-flipped');
   document.getElementById('vocab-word').textContent = card.word;
   document.getElementById('vocab-reading').textContent = card.reading !== card.word ? card.reading : '';
-  document.getElementById('vocab-back-reading').textContent = card.reading;
+  document.getElementById('vocab-back-reading').textContent = card.romaji || card.reading;
   document.getElementById('vocab-meaning').textContent = card.meaning;
   document.getElementById('vocab-example').textContent = card.example;
   document.getElementById('vocab-example-meaning').textContent = card.example_meaning;
