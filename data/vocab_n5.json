@@ -1,0 +1,559 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "인사/기본 표현",
+      "words": [
+        {
+          "word": "こんにちは",
+          "reading": "こんにちは",
+          "meaning": "안녕하세요 (낮인사)",
+          "example": "こんにちは、元気ですか。",
+          "example_meaning": "안녕하세요, 잘 지내세요?"
+        },
+        {
+          "word": "おはようございます",
+          "reading": "おはようございます",
+          "meaning": "안녕하세요 (아침인사)",
+          "example": "おはようございます、いい天気ですね。",
+          "example_meaning": "안녕하세요, 좋은 날씨네요."
+        },
+        {
+          "word": "こんばんは",
+          "reading": "こんばんは",
+          "meaning": "안녕하세요 (저녁인사)",
+          "example": "こんばんは、お元気ですか。",
+          "example_meaning": "안녕하세요, 잘 지내세요?"
+        },
+        {
+          "word": "さようなら",
+          "reading": "さようなら",
+          "meaning": "안녕히 가세요 / 안녕히 계세요",
+          "example": "さようなら、また明日。",
+          "example_meaning": "안녕, 또 내일 봐요."
+        },
+        {
+          "word": "ありがとうございます",
+          "reading": "ありがとうございます",
+          "meaning": "감사합니다",
+          "example": "プレゼントをありがとうございます。",
+          "example_meaning": "선물 감사합니다."
+        },
+        {
+          "word": "すみません",
+          "reading": "すみません",
+          "meaning": "실례합니다 / 죄송합니다",
+          "example": "すみません、トイレはどこですか。",
+          "example_meaning": "실례합니다, 화장실은 어디입니까?"
+        },
+        {
+          "word": "はい",
+          "reading": "はい",
+          "meaning": "네",
+          "example": "はい、わかりました。",
+          "example_meaning": "네, 알겠습니다."
+        },
+        {
+          "word": "いいえ",
+          "reading": "いいえ",
+          "meaning": "아니요",
+          "example": "いいえ、違います。",
+          "example_meaning": "아니요, 다릅니다."
+        },
+        {
+          "word": "お願いします",
+          "reading": "おねがいします",
+          "meaning": "부탁합니다",
+          "example": "コーヒーをお願いします。",
+          "example_meaning": "커피를 부탁합니다."
+        },
+        {
+          "word": "元気",
+          "reading": "げんき",
+          "meaning": "건강한, 활기찬",
+          "example": "お元気ですか。",
+          "example_meaning": "잘 지내세요?"
+        },
+        {
+          "word": "大丈夫",
+          "reading": "だいじょうぶ",
+          "meaning": "괜찮다",
+          "example": "大丈夫ですか。",
+          "example_meaning": "괜찮으세요?"
+        },
+        {
+          "word": "おやすみなさい",
+          "reading": "おやすみなさい",
+          "meaning": "안녕히 주무세요",
+          "example": "おやすみなさい、いい夢を。",
+          "example_meaning": "안녕히 주무세요, 좋은 꿈 꾸세요."
+        },
+        {
+          "word": "いただきます",
+          "reading": "いただきます",
+          "meaning": "잘 먹겠습니다",
+          "example": "いただきます、おいしそうですね。",
+          "example_meaning": "잘 먹겠습니다, 맛있어 보이네요."
+        },
+        {
+          "word": "ごちそうさまでした",
+          "reading": "ごちそうさまでした",
+          "meaning": "잘 먹었습니다",
+          "example": "ごちそうさまでした、おいしかったです。",
+          "example_meaning": "잘 먹었습니다, 맛있었습니다."
+        },
+        {
+          "word": "はじめまして",
+          "reading": "はじめまして",
+          "meaning": "처음 뵙겠습니다",
+          "example": "はじめまして、田中です。",
+          "example_meaning": "처음 뵙겠습니다, 다나카입니다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "숫자/시간",
+      "words": [
+        {
+          "word": "一",
+          "reading": "いち",
+          "meaning": "일, 하나",
+          "example": "りんごが一つあります。",
+          "example_meaning": "사과가 하나 있습니다."
+        },
+        {
+          "word": "二",
+          "reading": "に",
+          "meaning": "이, 둘",
+          "example": "猫が二匹います。",
+          "example_meaning": "고양이가 두 마리 있습니다."
+        },
+        {
+          "word": "三",
+          "reading": "さん",
+          "meaning": "삼, 셋",
+          "example": "三人で行きます。",
+          "example_meaning": "세 명이서 갑니다."
+        },
+        {
+          "word": "四",
+          "reading": "よん",
+          "meaning": "사, 넷",
+          "example": "四時に会いましょう。",
+          "example_meaning": "네 시에 만납시다."
+        },
+        {
+          "word": "五",
+          "reading": "ご",
+          "meaning": "오, 다섯",
+          "example": "五月は暖かいです。",
+          "example_meaning": "5월은 따뜻합니다."
+        },
+        {
+          "word": "百",
+          "reading": "ひゃく",
+          "meaning": "백",
+          "example": "百円のジュースを買いました。",
+          "example_meaning": "백 엔짜리 주스를 샀습니다."
+        },
+        {
+          "word": "千",
+          "reading": "せん",
+          "meaning": "천",
+          "example": "この本は千円です。",
+          "example_meaning": "이 책은 천 엔입니다."
+        },
+        {
+          "word": "今日",
+          "reading": "きょう",
+          "meaning": "오늘",
+          "example": "今日は日曜日です。",
+          "example_meaning": "오늘은 일요일입니다."
+        },
+        {
+          "word": "明日",
+          "reading": "あした",
+          "meaning": "내일",
+          "example": "明日、学校に行きます。",
+          "example_meaning": "내일 학교에 갑니다."
+        },
+        {
+          "word": "昨日",
+          "reading": "きのう",
+          "meaning": "어제",
+          "example": "昨日、映画を見ました。",
+          "example_meaning": "어제 영화를 봤습니다."
+        },
+        {
+          "word": "時",
+          "reading": "じ",
+          "meaning": "시 (시간 단위)",
+          "example": "今、三時です。",
+          "example_meaning": "지금 세 시입니다."
+        },
+        {
+          "word": "分",
+          "reading": "ふん",
+          "meaning": "분 (시간 단위)",
+          "example": "十五分かかります。",
+          "example_meaning": "15분 걸립니다."
+        },
+        {
+          "word": "午前",
+          "reading": "ごぜん",
+          "meaning": "오전",
+          "example": "午前九時に起きます。",
+          "example_meaning": "오전 9시에 일어납니다."
+        },
+        {
+          "word": "午後",
+          "reading": "ごご",
+          "meaning": "오후",
+          "example": "午後から雨が降ります。",
+          "example_meaning": "오후부터 비가 옵니다."
+        },
+        {
+          "word": "毎日",
+          "reading": "まいにち",
+          "meaning": "매일",
+          "example": "毎日、日本語を勉強します。",
+          "example_meaning": "매일 일본어를 공부합니다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "사람/가족",
+      "words": [
+        {
+          "word": "私",
+          "reading": "わたし",
+          "meaning": "나, 저",
+          "example": "私は韓国人です。",
+          "example_meaning": "저는 한국 사람입니다."
+        },
+        {
+          "word": "あなた",
+          "reading": "あなた",
+          "meaning": "당신, 너",
+          "example": "あなたの名前は何ですか。",
+          "example_meaning": "당신의 이름은 무엇입니까?"
+        },
+        {
+          "word": "先生",
+          "reading": "せんせい",
+          "meaning": "선생님",
+          "example": "先生は優しいです。",
+          "example_meaning": "선생님은 친절합니다."
+        },
+        {
+          "word": "学生",
+          "reading": "がくせい",
+          "meaning": "학생",
+          "example": "私は大学の学生です。",
+          "example_meaning": "저는 대학 학생입니다."
+        },
+        {
+          "word": "父",
+          "reading": "ちち",
+          "meaning": "아버지 (자기 아버지)",
+          "example": "父は会社員です。",
+          "example_meaning": "아버지는 회사원입니다."
+        },
+        {
+          "word": "母",
+          "reading": "はは",
+          "meaning": "어머니 (자기 어머니)",
+          "example": "母は料理が上手です。",
+          "example_meaning": "어머니는 요리를 잘합니다."
+        },
+        {
+          "word": "兄",
+          "reading": "あに",
+          "meaning": "형, 오빠 (자기 형/오빠)",
+          "example": "兄は東京に住んでいます。",
+          "example_meaning": "형은 도쿄에 살고 있습니다."
+        },
+        {
+          "word": "姉",
+          "reading": "あね",
+          "meaning": "누나, 언니 (자기 누나/언니)",
+          "example": "姉は看護師です。",
+          "example_meaning": "누나는 간호사입니다."
+        },
+        {
+          "word": "弟",
+          "reading": "おとうと",
+          "meaning": "남동생",
+          "example": "弟は高校生です。",
+          "example_meaning": "남동생은 고등학생입니다."
+        },
+        {
+          "word": "妹",
+          "reading": "いもうと",
+          "meaning": "여동생",
+          "example": "妹は十歳です。",
+          "example_meaning": "여동생은 열 살입니다."
+        },
+        {
+          "word": "友達",
+          "reading": "ともだち",
+          "meaning": "친구",
+          "example": "友達と公園に行きました。",
+          "example_meaning": "친구와 공원에 갔습니다."
+        },
+        {
+          "word": "子供",
+          "reading": "こども",
+          "meaning": "아이, 자녀",
+          "example": "子供が三人います。",
+          "example_meaning": "아이가 세 명 있습니다."
+        },
+        {
+          "word": "男の子",
+          "reading": "おとこのこ",
+          "meaning": "남자아이",
+          "example": "男の子がサッカーをしています。",
+          "example_meaning": "남자아이가 축구를 하고 있습니다."
+        },
+        {
+          "word": "女の子",
+          "reading": "おんなのこ",
+          "meaning": "여자아이",
+          "example": "女の子が絵を描いています。",
+          "example_meaning": "여자아이가 그림을 그리고 있습니다."
+        },
+        {
+          "word": "人",
+          "reading": "ひと",
+          "meaning": "사람",
+          "example": "あの人は誰ですか。",
+          "example_meaning": "저 사람은 누구입니까?"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "장소/방향",
+      "words": [
+        {
+          "word": "学校",
+          "reading": "がっこう",
+          "meaning": "학교",
+          "example": "学校は家から近いです。",
+          "example_meaning": "학교는 집에서 가깝습니다."
+        },
+        {
+          "word": "駅",
+          "reading": "えき",
+          "meaning": "역",
+          "example": "駅まで歩いて十分です。",
+          "example_meaning": "역까지 걸어서 10분입니다."
+        },
+        {
+          "word": "病院",
+          "reading": "びょういん",
+          "meaning": "병원",
+          "example": "病院に行かなければなりません。",
+          "example_meaning": "병원에 가야 합니다."
+        },
+        {
+          "word": "会社",
+          "reading": "かいしゃ",
+          "meaning": "회사",
+          "example": "会社は九時に始まります。",
+          "example_meaning": "회사는 9시에 시작합니다."
+        },
+        {
+          "word": "家",
+          "reading": "いえ",
+          "meaning": "집",
+          "example": "家でテレビを見ます。",
+          "example_meaning": "집에서 텔레비전을 봅니다."
+        },
+        {
+          "word": "上",
+          "reading": "うえ",
+          "meaning": "위",
+          "example": "本は机の上にあります。",
+          "example_meaning": "책은 책상 위에 있습니다."
+        },
+        {
+          "word": "下",
+          "reading": "した",
+          "meaning": "아래",
+          "example": "猫がテーブルの下にいます。",
+          "example_meaning": "고양이가 테이블 아래에 있습니다."
+        },
+        {
+          "word": "右",
+          "reading": "みぎ",
+          "meaning": "오른쪽",
+          "example": "右に曲がってください。",
+          "example_meaning": "오른쪽으로 돌아주세요."
+        },
+        {
+          "word": "左",
+          "reading": "ひだり",
+          "meaning": "왼쪽",
+          "example": "銀行は左にあります。",
+          "example_meaning": "은행은 왼쪽에 있습니다."
+        },
+        {
+          "word": "中",
+          "reading": "なか",
+          "meaning": "안, 가운데",
+          "example": "箱の中に何がありますか。",
+          "example_meaning": "상자 안에 무엇이 있습니까?"
+        },
+        {
+          "word": "外",
+          "reading": "そと",
+          "meaning": "밖, 바깥",
+          "example": "外は寒いです。",
+          "example_meaning": "밖은 춥습니다."
+        },
+        {
+          "word": "前",
+          "reading": "まえ",
+          "meaning": "앞",
+          "example": "駅の前にコンビニがあります。",
+          "example_meaning": "역 앞에 편의점이 있습니다."
+        },
+        {
+          "word": "後ろ",
+          "reading": "うしろ",
+          "meaning": "뒤",
+          "example": "後ろを見てください。",
+          "example_meaning": "뒤를 봐주세요."
+        },
+        {
+          "word": "近く",
+          "reading": "ちかく",
+          "meaning": "근처, 가까이",
+          "example": "近くにスーパーがあります。",
+          "example_meaning": "근처에 슈퍼마켓이 있습니다."
+        },
+        {
+          "word": "図書館",
+          "reading": "としょかん",
+          "meaning": "도서관",
+          "example": "図書館で本を借りました。",
+          "example_meaning": "도서관에서 책을 빌렸습니다."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "음식/일상",
+      "words": [
+        {
+          "word": "水",
+          "reading": "みず",
+          "meaning": "물",
+          "example": "水をください。",
+          "example_meaning": "물을 주세요."
+        },
+        {
+          "word": "食べる",
+          "reading": "たべる",
+          "meaning": "먹다",
+          "example": "朝ご飯を食べます。",
+          "example_meaning": "아침밥을 먹습니다."
+        },
+        {
+          "word": "飲む",
+          "reading": "のむ",
+          "meaning": "마시다",
+          "example": "お茶を飲みます。",
+          "example_meaning": "차를 마십니다."
+        },
+        {
+          "word": "朝ご飯",
+          "reading": "あさごはん",
+          "meaning": "아침밥, 아침식사",
+          "example": "毎日、朝ご飯を食べます。",
+          "example_meaning": "매일 아침밥을 먹습니다."
+        },
+        {
+          "word": "昼ご飯",
+          "reading": "ひるごはん",
+          "meaning": "점심밥, 점심식사",
+          "example": "昼ご飯は何を食べますか。",
+          "example_meaning": "점심은 무엇을 먹습니까?"
+        },
+        {
+          "word": "晩ご飯",
+          "reading": "ばんごはん",
+          "meaning": "저녁밥, 저녁식사",
+          "example": "晩ご飯を作ります。",
+          "example_meaning": "저녁밥을 만듭니다."
+        },
+        {
+          "word": "肉",
+          "reading": "にく",
+          "meaning": "고기",
+          "example": "肉が好きです。",
+          "example_meaning": "고기를 좋아합니다."
+        },
+        {
+          "word": "魚",
+          "reading": "さかな",
+          "meaning": "생선, 물고기",
+          "example": "魚を焼きます。",
+          "example_meaning": "생선을 굽습니다."
+        },
+        {
+          "word": "野菜",
+          "reading": "やさい",
+          "meaning": "채소, 야채",
+          "example": "野菜をたくさん食べてください。",
+          "example_meaning": "채소를 많이 드세요."
+        },
+        {
+          "word": "果物",
+          "reading": "くだもの",
+          "meaning": "과일",
+          "example": "果物の中でりんごが一番好きです。",
+          "example_meaning": "과일 중에서 사과를 가장 좋아합니다."
+        },
+        {
+          "word": "卵",
+          "reading": "たまご",
+          "meaning": "달걀, 계란",
+          "example": "卵を二つ買いました。",
+          "example_meaning": "달걀을 두 개 샀습니다."
+        },
+        {
+          "word": "お茶",
+          "reading": "おちゃ",
+          "meaning": "차 (녹차)",
+          "example": "お茶を一杯いかがですか。",
+          "example_meaning": "차 한 잔 어떠세요?"
+        },
+        {
+          "word": "料理",
+          "reading": "りょうり",
+          "meaning": "요리",
+          "example": "日本料理が好きです。",
+          "example_meaning": "일본 요리를 좋아합니다."
+        },
+        {
+          "word": "買う",
+          "reading": "かう",
+          "meaning": "사다",
+          "example": "スーパーで牛乳を買います。",
+          "example_meaning": "슈퍼마켓에서 우유를 삽니다."
+        },
+        {
+          "word": "作る",
+          "reading": "つくる",
+          "meaning": "만들다",
+          "example": "ケーキを作りました。",
+          "example_meaning": "케이크를 만들었습니다."
+        }
+      ]
+    }
+  ]
+}

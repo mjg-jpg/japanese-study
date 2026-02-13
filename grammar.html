@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N5 문법 — 日本語 学習</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="mobile-header">
+    <a href="index.html" class="site-title">日本語 学習</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="menu">menu</button>
+  </div>
+  <div class="mobile-overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <div class="page-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="ribbon"></div>
+      <div class="sidebar-header">
+        <a href="index.html" class="site-title">日本語 学習</a>
+        <div class="site-subtitle">진격의 거인 원서 읽기</div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">대시보드</a>
+        <a href="quiz.html" class="nav-link">かな Quiz</a>
+        <a href="vocab.html" class="nav-link">단어장</a>
+        <a href="grammar.html" class="nav-link">문법</a>
+        <a href="reading.html" class="nav-link">읽기</a>
+      </nav>
+      <div class="sidebar-footer">2026 JH's Study</div>
+    </aside>
+
+    <main class="main-content">
+
+<div class="vocab-header-bar"><a href="index.html" class="back-link">학습 대시보드</a></div>
+<h1 class="page-heading">N5 문법 패턴</h1>
+<p class="page-description">기초 문법 패턴 20개 — 레슨별 학습</p>
+
+<div id="grammar-lessons" class="vocab-lesson-list"></div>
+
+<div id="grammar-study" style="display:none">
+  <div class="quiz-header">
+    <button class="quiz-back-btn" onclick="showLessons()">← 레슨 목록</button>
+    <span id="grammar-counter">1 / 5</span>
+  </div>
+  <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="grammar-bar" style="width:0%"></div></div>
+  <div class="grammar-card" id="grammar-card">
+    <div class="grammar-pattern" id="grammar-pattern"></div>
+    <div class="grammar-meaning" id="grammar-meaning"></div>
+    <div class="grammar-explanation" id="grammar-explanation" style="display:none"></div>
+    <div class="grammar-examples" id="grammar-examples" style="display:none"></div>
+  </div>
+  <div class="grammar-actions">
+    <button class="btn btn-secondary" id="btn-show-detail" onclick="showDetail()">설명 보기</button>
+    <button class="btn btn-primary" id="btn-next" onclick="nextPattern()">다음 →</button>
+  </div>
+  <div class="vocab-hint" style="margin-top:0.5rem">키보드: <b>Space</b> 설명 보기 · <b>→</b> 다음</div>
+</div>
+
+<div id="grammar-result" style="display:none">
+  <div class="quiz-result-score">
+    <div class="quiz-result-number" id="result-count"></div>
+    <div class="quiz-result-label">패턴 학습 완료</div>
+  </div>
+  <h3 style="margin-top:1.5rem; font-family:var(--font-mono); font-size:0.85rem; color:var(--text-muted);">학습한 패턴</h3>
+  <div class="grammar-review-list" id="review-list"></div>
+  <div class="quiz-result-actions" style="margin-top:1.5rem">
+    <button class="btn btn-secondary" onclick="showLessons()">레슨 목록</button>
+    <a href="index.html" class="btn btn-primary">대시보드로</a>
+  </div>
+</div>
+
+<script>
+function getProgress() { try { return JSON.parse(localStorage.getItem('jp_progress') || '{}'); } catch(e) { return {}; } }
+function saveProgress(p) { localStorage.setItem('jp_progress', JSON.stringify(p)); }
+function updateStreak(p) {
+  if (!p.stats) p.stats = { streak_days: 0, last_study: '', total_sessions: 0 };
+  const today = new Date().toISOString().slice(0,10);
+  if (p.stats.last_study === today) return;
+  if (p.stats.last_study) { const d = Math.floor((new Date(today) - new Date(p.stats.last_study)) / 86400000); p.stats.streak_days = d === 1 ? p.stats.streak_days + 1 : 1; } else { p.stats.streak_days = 1; }
+  p.stats.last_study = today; p.stats.total_sessions++;
+}
+
+let allData = null, currentLesson = null, currentIdx = 0, detailShown = false;
+
+fetch('data/grammar_n5.json').then(r => r.json()).then(data => { allData = data; renderLessons(); });
+
+function renderLessons() {
+  const el = document.getElementById('grammar-lessons'); el.innerHTML = '';
+  allData.lessons.forEach(lesson => {
+    const card = document.createElement('div'); card.className = 'vocab-lesson-card';
+    card.onclick = () => startLesson(lesson);
+    card.innerHTML = '<div class="vocab-lesson-info"><div class="vocab-lesson-title">Lesson ' + lesson.id + ': ' + lesson.title + '</div><div class="vocab-lesson-meta">' + lesson.patterns.length + '개 패턴</div></div>';
+    el.appendChild(card);
+  });
+}
+
+function showLessons() { document.getElementById('grammar-lessons').style.display = ''; document.getElementById('grammar-study').style.display = 'none'; document.getElementById('grammar-result').style.display = 'none'; }
+
+function startLesson(lesson) {
+  currentLesson = lesson; currentIdx = 0; detailShown = false;
+  document.getElementById('grammar-lessons').style.display = 'none';
+  document.getElementById('grammar-study').style.display = '';
+  document.getElementById('grammar-result').style.display = 'none';
+  showPattern();
+}
+
+function showPattern() {
+  const p = currentLesson.patterns[currentIdx];
+  const total = currentLesson.patterns.length;
+  document.getElementById('grammar-counter').textContent = (currentIdx + 1) + ' / ' + total;
+  document.getElementById('grammar-bar').style.width = (currentIdx / total * 100) + '%';
+  document.getElementById('grammar-pattern').textContent = p.pattern;
+  document.getElementById('grammar-meaning').textContent = p.meaning;
+  document.getElementById('grammar-explanation').style.display = 'none';
+  document.getElementById('grammar-explanation').textContent = p.explanation;
+  document.getElementById('grammar-examples').style.display = 'none';
+  const exEl = document.getElementById('grammar-examples'); exEl.innerHTML = '';
+  p.examples.forEach(ex => {
+    const div = document.createElement('div'); div.className = 'grammar-example-item';
+    div.innerHTML = '<div class="grammar-ex-jp">' + ex.japanese + '</div><div class="grammar-ex-reading">' + ex.reading + '</div><div class="grammar-ex-ko">' + ex.korean + '</div>';
+    exEl.appendChild(div);
+  });
+  detailShown = false;
+  document.getElementById('btn-show-detail').textContent = '설명 보기';
+  document.getElementById('btn-next').textContent = currentIdx < total - 1 ? '다음 →' : '완료 ✓';
+}
+
+function showDetail() {
+  if (detailShown) {
+    document.getElementById('grammar-explanation').style.display = 'none';
+    document.getElementById('grammar-examples').style.display = 'none';
+    document.getElementById('btn-show-detail').textContent = '설명 보기'; detailShown = false;
+  } else {
+    document.getElementById('grammar-explanation').style.display = '';
+    document.getElementById('grammar-examples').style.display = '';
+    document.getElementById('btn-show-detail').textContent = '설명 접기'; detailShown = true;
+  }
+}
+
+function nextPattern() {
+  if (currentIdx < currentLesson.patterns.length - 1) { currentIdx++; showPattern(); }
+  else showResult();
+}
+
+function showResult() {
+  document.getElementById('grammar-study').style.display = 'none';
+  document.getElementById('grammar-result').style.display = '';
+  document.getElementById('grammar-bar').style.width = '100%';
+  document.getElementById('result-count').textContent = currentLesson.patterns.length;
+  const list = document.getElementById('review-list'); list.innerHTML = '';
+  currentLesson.patterns.forEach(p => {
+    const div = document.createElement('div'); div.className = 'grammar-review-item';
+    div.innerHTML = '<div class="grammar-review-pattern">' + p.pattern + '</div><div class="grammar-review-meaning">' + p.meaning + '</div>';
+    list.appendChild(div);
+  });
+
+  const p = getProgress(); if (!p.grammar) p.grammar = {};
+  p.grammar[currentLesson.id] = { completed: true, patterns_count: currentLesson.patterns.length };
+  updateStreak(p); saveProgress(p);
+}
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('grammar-study').style.display === 'none') return;
+  if (e.code === 'Space') { e.preventDefault(); showDetail(); }
+  if (e.code === 'ArrowRight') { e.preventDefault(); nextPattern(); }
+});
+</script>
+
+      <footer class="main-footer">2026 JH's Study</footer>
+    </main>
+    <div class="right-margin"></div>
+  </div>
+  <script>function toggleMenu() { document.getElementById('sidebar').classList.toggle('mobile-open'); document.getElementById('overlay').classList.toggle('active'); }</script>
+</body>
+</html>

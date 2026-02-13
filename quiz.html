@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>かな Quiz — 日本語 学習</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="mobile-header">
+    <a href="index.html" class="site-title">日本語 学習</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="menu">menu</button>
+  </div>
+  <div class="mobile-overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <div class="page-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="ribbon"></div>
+      <div class="sidebar-header">
+        <a href="index.html" class="site-title">日本語 学習</a>
+        <div class="site-subtitle">진격의 거인 원서 읽기</div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">대시보드</a>
+        <a href="quiz.html" class="nav-link">かな Quiz</a>
+        <a href="vocab.html" class="nav-link">단어장</a>
+        <a href="grammar.html" class="nav-link">문법</a>
+        <a href="reading.html" class="nav-link">읽기</a>
+      </nav>
+      <div class="sidebar-footer">2026 JH's Study</div>
+    </aside>
+
+    <main class="main-content">
+
+<!-- 설정 화면 -->
+<div id="quiz-setup">
+  <div class="vocab-header-bar">
+    <a href="index.html" class="back-link">학습 대시보드</a>
+  </div>
+  <h1 class="page-heading">かな Quiz</h1>
+  <p class="page-description">히라가나 · 가타카나 연습</p>
+
+  <div class="quiz-setup-form">
+    <div class="quiz-option-group">
+      <label class="quiz-label">문자 종류</label>
+      <div class="quiz-btn-row">
+        <button class="quiz-mode-btn active" data-mode="hiragana" onclick="selectMode(this)">ひらがな</button>
+        <button class="quiz-mode-btn" data-mode="katakana" onclick="selectMode(this)">カタカナ</button>
+        <button class="quiz-mode-btn" data-mode="mixed" onclick="selectMode(this)">혼합</button>
+      </div>
+    </div>
+    <div class="quiz-option-group">
+      <label class="quiz-label">범위</label>
+      <div class="quiz-btn-row">
+        <button class="quiz-range-btn active" data-range="basic" onclick="selectRange(this)">기본 (46자)</button>
+        <button class="quiz-range-btn" data-range="dakuten" onclick="selectRange(this)">+ 탁음</button>
+        <button class="quiz-range-btn" data-range="all" onclick="selectRange(this)">전체</button>
+      </div>
+    </div>
+    <div class="quiz-option-group">
+      <label class="quiz-label">문제 유형</label>
+      <div class="quiz-btn-row">
+        <button class="quiz-type-btn active" data-type="kana2roma" onclick="selectType(this)">가나 → 로마자</button>
+        <button class="quiz-type-btn" data-type="roma2kana" onclick="selectType(this)">로마자 → 가나</button>
+      </div>
+    </div>
+    <div class="quiz-option-group">
+      <label class="quiz-label">문제 수</label>
+      <div class="quiz-btn-row">
+        <button class="quiz-count-btn" data-count="10" onclick="selectCount(this)">10</button>
+        <button class="quiz-count-btn active" data-count="20" onclick="selectCount(this)">20</button>
+        <button class="quiz-count-btn" data-count="46" onclick="selectCount(this)">46</button>
+        <button class="quiz-count-btn" data-count="0" onclick="selectCount(this)">전체</button>
+      </div>
+    </div>
+    <button class="btn btn-primary quiz-start-btn" onclick="startQuiz()">시작하기</button>
+  </div>
+
+  <div class="kana-chart-section">
+    <h2 class="quiz-label" style="margin-top:2rem; cursor:pointer;" onclick="toggleChart()">
+      오십음도 참고표 <span id="chart-toggle" style="font-size:0.8rem;">▼</span>
+    </h2>
+    <div id="kana-chart" class="kana-chart" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- 퀴즈 진행 -->
+<div id="quiz-play" style="display:none;">
+  <div class="quiz-header">
+    <button class="quiz-back-btn" onclick="backToSetup()">← 설정</button>
+    <div class="quiz-progress-info"><span id="quiz-current">1</span> / <span id="quiz-total">10</span></div>
+    <div class="quiz-score-info">✓ <span id="quiz-correct">0</span></div>
+  </div>
+  <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+
+  <div id="quiz-input-mode" class="quiz-question-area">
+    <div class="quiz-kana-display" id="quiz-kana-display">あ</div>
+    <div class="quiz-input-wrapper">
+      <input type="text" id="quiz-input" class="quiz-input" placeholder="romaji" autocomplete="off" autofocus>
+      <div class="quiz-input-hint" id="quiz-input-hint"></div>
+    </div>
+  </div>
+
+  <div id="quiz-choice-mode" class="quiz-question-area" style="display:none;">
+    <div class="quiz-romaji-display" id="quiz-romaji-display">ka</div>
+    <div class="quiz-choices" id="quiz-choices"></div>
+  </div>
+
+  <div class="quiz-feedback" id="quiz-feedback" style="display:none;">
+    <div id="quiz-feedback-text"></div>
+  </div>
+</div>
+
+<!-- 결과 -->
+<div id="quiz-result" style="display:none;">
+  <h1 class="page-heading">결과</h1>
+  <div class="quiz-result-score">
+    <div class="quiz-result-number" id="result-score">0</div>
+    <div class="quiz-result-label">/ <span id="result-total">10</span> 정답</div>
+  </div>
+  <div class="quiz-result-percent" id="result-percent">0%</div>
+  <div id="result-wrong-section" style="display:none;">
+    <h2 class="quiz-label" style="margin-top:1.5rem;">틀린 문제 복습</h2>
+    <div class="quiz-wrong-list" id="result-wrong-list"></div>
+  </div>
+  <div class="quiz-result-actions">
+    <button class="btn btn-primary" onclick="startQuiz()">다시 풀기</button>
+    <button class="btn btn-secondary" onclick="backToSetup()">설정으로</button>
+  </div>
+</div>
+
+<script>
+// localStorage 진도 관리
+function getProgress() { try { return JSON.parse(localStorage.getItem('jp_progress') || '{}'); } catch(e) { return {}; } }
+function saveProgress(p) { localStorage.setItem('jp_progress', JSON.stringify(p)); }
+function updateStreak(p) {
+  if (!p.stats) p.stats = { streak_days: 0, last_study: '', total_sessions: 0 };
+  const today = new Date().toISOString().slice(0,10);
+  if (p.stats.last_study === today) return;
+  if (p.stats.last_study) {
+    const last = new Date(p.stats.last_study);
+    const diff = Math.floor((new Date(today) - last) / 86400000);
+    p.stats.streak_days = diff === 1 ? p.stats.streak_days + 1 : 1;
+  } else { p.stats.streak_days = 1; }
+  p.stats.last_study = today;
+  p.stats.total_sessions++;
+}
+
+let kanaData = null;
+let quizMode = 'hiragana', quizRange = 'basic', quizType = 'kana2roma', quizCount = 20;
+let questions = [], currentIdx = 0, correctCount = 0, wrongList = [], answered = false;
+
+fetch('data/kana.json').then(r => r.json()).then(data => { kanaData = data; buildChart(); });
+
+function selectMode(btn) { document.querySelectorAll('.quiz-mode-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); quizMode = btn.dataset.mode; }
+function selectRange(btn) { document.querySelectorAll('.quiz-range-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); quizRange = btn.dataset.range; }
+function selectType(btn) { document.querySelectorAll('.quiz-type-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); quizType = btn.dataset.type; }
+function selectCount(btn) { document.querySelectorAll('.quiz-count-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); quizCount = parseInt(btn.dataset.count); }
+
+function startQuiz() {
+  if (!kanaData) return;
+  let pool = [];
+  const types = quizMode === 'mixed' ? ['hiragana', 'katakana'] : [quizMode];
+  types.forEach(type => {
+    pool = pool.concat(kanaData[type].basic);
+    if (quizRange === 'dakuten' || quizRange === 'all') pool = pool.concat(kanaData[type].dakuten);
+    if (quizRange === 'all') pool = pool.concat(kanaData[type].combo);
+  });
+  pool = shuffle(pool);
+  const count = quizCount === 0 ? pool.length : Math.min(quizCount, pool.length);
+  questions = pool.slice(0, count);
+  currentIdx = 0; correctCount = 0; wrongList = [];
+  document.getElementById('quiz-total').textContent = questions.length;
+  document.getElementById('result-total').textContent = questions.length;
+  showScreen('quiz-play'); showQuestion();
+}
+
+function showQuestion() {
+  answered = false;
+  const q = questions[currentIdx];
+  document.getElementById('quiz-current').textContent = currentIdx + 1;
+  document.getElementById('quiz-correct').textContent = correctCount;
+  document.getElementById('quiz-progress-fill').style.width = (currentIdx / questions.length * 100) + '%';
+  document.getElementById('quiz-feedback').style.display = 'none';
+  if (quizType === 'kana2roma') {
+    document.getElementById('quiz-input-mode').style.display = 'block';
+    document.getElementById('quiz-choice-mode').style.display = 'none';
+    document.getElementById('quiz-kana-display').textContent = q.kana;
+    const input = document.getElementById('quiz-input');
+    input.value = ''; input.className = 'quiz-input';
+    document.getElementById('quiz-input-hint').textContent = '';
+    setTimeout(() => input.focus(), 50);
+  } else {
+    document.getElementById('quiz-input-mode').style.display = 'none';
+    document.getElementById('quiz-choice-mode').style.display = 'block';
+    document.getElementById('quiz-romaji-display').textContent = q.romaji;
+    const choicePool = getChoicePool(q);
+    let choices = [q];
+    while (choices.length < 4 && choicePool.length > 0) {
+      const pick = choicePool.splice(Math.floor(Math.random() * choicePool.length), 1)[0];
+      if (!choices.find(c => c.kana === pick.kana)) choices.push(pick);
+    }
+    choices = shuffle(choices);
+    const btns = document.getElementById('quiz-choices');
+    btns.innerHTML = '';
+    choices.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-choice-btn'; btn.textContent = c.kana; btn.dataset.romaji = c.romaji;
+      btn.onclick = () => selectChoice(btn); btns.appendChild(btn);
+    });
+  }
+}
+
+function getChoicePool(current) {
+  let pool = [];
+  const types = quizMode === 'mixed' ? ['hiragana', 'katakana'] : [quizMode];
+  types.forEach(type => {
+    pool = pool.concat(kanaData[type].basic);
+    if (quizRange === 'dakuten' || quizRange === 'all') pool = pool.concat(kanaData[type].dakuten);
+    if (quizRange === 'all') pool = pool.concat(kanaData[type].combo);
+  });
+  return pool.filter(p => p.kana !== current.kana);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('quiz-play').style.display === 'none') return;
+  if (quizType !== 'kana2roma') return;
+  if (e.key === 'Enter') { if (answered) nextQuestion(); else checkInputAnswer(); }
+});
+
+function checkInputAnswer() {
+  if (answered) return; answered = true;
+  const q = questions[currentIdx];
+  const input = document.getElementById('quiz-input');
+  const answer = input.value.trim().toLowerCase();
+  if (answer === q.romaji) {
+    correctCount++; input.className = 'quiz-input quiz-input-correct'; showFeedback(true, '');
+  } else {
+    wrongList.push(q); input.className = 'quiz-input quiz-input-wrong';
+    document.getElementById('quiz-input-hint').textContent = q.romaji;
+    showFeedback(false, q.kana + ' = ' + q.romaji);
+  }
+}
+
+function selectChoice(btn) {
+  if (answered) return; answered = true;
+  const q = questions[currentIdx];
+  if (btn.dataset.romaji === q.romaji) {
+    correctCount++; btn.classList.add('quiz-choice-correct'); showFeedback(true, '');
+  } else {
+    wrongList.push(q); btn.classList.add('quiz-choice-wrong');
+    document.querySelectorAll('.quiz-choice-btn').forEach(b => { if (b.dataset.romaji === q.romaji) b.classList.add('quiz-choice-correct'); });
+    showFeedback(false, q.kana + ' = ' + q.romaji);
+  }
+  setTimeout(nextQuestion, 1200);
+}
+
+function showFeedback(isCorrect, detail) {
+  const fb = document.getElementById('quiz-feedback');
+  const text = document.getElementById('quiz-feedback-text');
+  fb.style.display = 'block';
+  fb.className = isCorrect ? 'quiz-feedback quiz-feedback-correct' : 'quiz-feedback quiz-feedback-wrong';
+  text.textContent = isCorrect ? '○ 정답!' : '✕ ' + detail;
+}
+
+function nextQuestion() {
+  currentIdx++;
+  if (currentIdx >= questions.length) showResult(); else showQuestion();
+}
+
+function showResult() {
+  document.getElementById('quiz-progress-fill').style.width = '100%';
+  const pct = Math.round(correctCount / questions.length * 100);
+  document.getElementById('result-score').textContent = correctCount;
+  document.getElementById('result-percent').textContent = pct + '%';
+  if (wrongList.length > 0) {
+    document.getElementById('result-wrong-section').style.display = 'block';
+    const list = document.getElementById('result-wrong-list'); list.innerHTML = '';
+    wrongList.forEach(w => { const item = document.createElement('div'); item.className = 'quiz-wrong-item';
+      item.innerHTML = '<span class="quiz-wrong-kana">' + w.kana + '</span><span class="quiz-wrong-romaji">' + w.romaji + '</span>'; list.appendChild(item); });
+  } else { document.getElementById('result-wrong-section').style.display = 'none'; }
+
+  // localStorage에 진도 저장
+  const p = getProgress();
+  if (!p.kana) p.kana = {};
+  const correctKana = questions.filter(q => !wrongList.find(w => w.kana === q.kana)).map(q => q.kana);
+  const key = quizMode + '_' + quizRange;
+  if (!p.kana[key]) p.kana[key] = { correct: 0, total: 0, mastered: [] };
+  p.kana[key].correct += correctCount;
+  p.kana[key].total += questions.length;
+  correctKana.forEach(ch => { if (!p.kana[key].mastered.includes(ch)) p.kana[key].mastered.push(ch); });
+  updateStreak(p);
+  saveProgress(p);
+
+  showScreen('quiz-result');
+}
+
+function showScreen(id) { ['quiz-setup', 'quiz-play', 'quiz-result'].forEach(s => { document.getElementById(s).style.display = s === id ? 'block' : 'none'; }); }
+function backToSetup() { showScreen('quiz-setup'); }
+function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+function toggleChart() {
+  const chart = document.getElementById('kana-chart');
+  const toggle = document.getElementById('chart-toggle');
+  if (chart.style.display === 'none') { chart.style.display = 'grid'; toggle.textContent = '▲'; }
+  else { chart.style.display = 'none'; toggle.textContent = '▼'; }
+}
+
+function buildChart() {
+  if (!kanaData) return;
+  const chart = document.getElementById('kana-chart');
+  const rows = [['vowel','あ行'],['k','か行'],['s','さ行'],['t','た行'],['n','な行'],['h','は行'],['m','ま行'],['y','や行'],['r','ら行'],['w','わ行'],['nn','ん']];
+  let html = '<div class="kana-chart-header"></div><div class="kana-chart-header">a</div><div class="kana-chart-header">i</div><div class="kana-chart-header">u</div><div class="kana-chart-header">e</div><div class="kana-chart-header">o</div>';
+  rows.forEach(([group, label]) => {
+    html += '<div class="kana-chart-label">' + label + '</div>';
+    const items = kanaData.hiragana.basic.filter(k => k.group === group);
+    for (let i = 0; i < 5; i++) {
+      if (items[i]) {
+        const kata = kanaData.katakana.basic.find(k => k.romaji === items[i].romaji);
+        html += '<div class="kana-chart-cell"><span class="chart-hira">' + items[i].kana + '</span><span class="chart-kata">' + (kata ? kata.kana : '') + '</span><span class="chart-roma">' + items[i].romaji + '</span></div>';
+      } else { html += '<div class="kana-chart-cell"></div>'; }
+    }
+  });
+  chart.innerHTML = html;
+}
+</script>
+
+      <footer class="main-footer">2026 JH's Study</footer>
+    </main>
+    <div class="right-margin"></div>
+  </div>
+  <script>function toggleMenu() { document.getElementById('sidebar').classList.toggle('mobile-open'); document.getElementById('overlay').classList.toggle('active'); }</script>
+</body>
+</html>

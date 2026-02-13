@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>単語帳 — 日本語 学習</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="mobile-header">
+    <a href="index.html" class="site-title">日本語 学習</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="menu">menu</button>
+  </div>
+  <div class="mobile-overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <div class="page-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="ribbon"></div>
+      <div class="sidebar-header">
+        <a href="index.html" class="site-title">日本語 学習</a>
+        <div class="site-subtitle">진격의 거인 원서 읽기</div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">대시보드</a>
+        <a href="quiz.html" class="nav-link">かな Quiz</a>
+        <a href="vocab.html" class="nav-link">단어장</a>
+        <a href="grammar.html" class="nav-link">문법</a>
+        <a href="reading.html" class="nav-link">읽기</a>
+      </nav>
+      <div class="sidebar-footer">2026 JH's Study</div>
+    </aside>
+
+    <main class="main-content">
+
+<div id="vocab-lessons">
+  <div class="vocab-header-bar"><a href="index.html" class="back-link">학습 대시보드</a></div>
+  <h1 class="page-heading">JLPT N5 単語帳</h1>
+  <p class="page-description">플래시카드로 단어를 외우세요</p>
+  <div class="vocab-lesson-list" id="vocab-lesson-list"></div>
+</div>
+
+<div id="vocab-study" style="display:none;">
+  <div class="quiz-header">
+    <button class="quiz-back-btn" onclick="backToLessons()">← 레슨 목록</button>
+    <div class="quiz-progress-info"><span id="vocab-current">1</span> / <span id="vocab-total">15</span></div>
+    <div class="quiz-score-info">✓ <span id="vocab-mastered-count">0</span></div>
+  </div>
+  <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="vocab-progress-fill"></div></div>
+  <div class="vocab-card-wrapper" onclick="flipCard()">
+    <div class="vocab-card" id="vocab-card">
+      <div class="vocab-card-front">
+        <div class="vocab-word" id="vocab-word"></div>
+        <div class="vocab-reading" id="vocab-reading"></div>
+      </div>
+      <div class="vocab-card-back">
+        <div class="vocab-meaning" id="vocab-meaning"></div>
+        <div class="vocab-example" id="vocab-example"></div>
+        <div class="vocab-example-meaning" id="vocab-example-meaning"></div>
+      </div>
+    </div>
+  </div>
+  <div class="vocab-hint" id="vocab-hint">카드를 클릭하면 뒤집힙니다 (Space)</div>
+  <div class="vocab-rating" id="vocab-rating" style="display:none;">
+    <button class="vocab-rate-btn vocab-rate-again" onclick="rateWord('again')">1 모르겠다</button>
+    <button class="vocab-rate-btn vocab-rate-hard" onclick="rateWord('hard')">2 애매</button>
+    <button class="vocab-rate-btn vocab-rate-good" onclick="rateWord('good')">3 알겠다</button>
+  </div>
+</div>
+
+<div id="vocab-result" style="display:none;">
+  <h1 class="page-heading">학습 완료!</h1>
+  <div class="quiz-result-score">
+    <div class="quiz-result-number" id="vocab-result-mastered">0</div>
+    <div class="quiz-result-label">/ <span id="vocab-result-total">15</span> 마스터</div>
+  </div>
+  <div class="vocab-result-breakdown">
+    <div class="vocab-result-item vocab-result-good"><span class="vocab-result-icon">✓</span><span>알겠다</span><span class="vocab-result-count" id="result-good-count">0</span></div>
+    <div class="vocab-result-item vocab-result-hard"><span class="vocab-result-icon">△</span><span>애매</span><span class="vocab-result-count" id="result-hard-count">0</span></div>
+    <div class="vocab-result-item vocab-result-again"><span class="vocab-result-icon">✕</span><span>모르겠다</span><span class="vocab-result-count" id="result-again-count">0</span></div>
+  </div>
+  <div id="vocab-review-section" style="display:none;">
+    <h2 class="quiz-label" style="margin-top:1.5rem;">복습이 필요한 단어</h2>
+    <div class="quiz-wrong-list" id="vocab-review-list"></div>
+  </div>
+  <div class="quiz-result-actions">
+    <button class="btn btn-primary" onclick="studyAgain()">다시 학습</button>
+    <button class="btn btn-secondary" onclick="backToLessons()">레슨 목록</button>
+  </div>
+</div>
+
+<script>
+function getProgress() { try { return JSON.parse(localStorage.getItem('jp_progress') || '{}'); } catch(e) { return {}; } }
+function saveProgress(p) { localStorage.setItem('jp_progress', JSON.stringify(p)); }
+function updateStreak(p) {
+  if (!p.stats) p.stats = { streak_days: 0, last_study: '', total_sessions: 0 };
+  const today = new Date().toISOString().slice(0,10);
+  if (p.stats.last_study === today) return;
+  if (p.stats.last_study) { const d = Math.floor((new Date(today) - new Date(p.stats.last_study)) / 86400000); p.stats.streak_days = d === 1 ? p.stats.streak_days + 1 : 1; } else { p.stats.streak_days = 1; }
+  p.stats.last_study = today; p.stats.total_sessions++;
+}
+
+let vocabData = null, currentLesson = null, cards = [], cardIdx = 0, flipped = false;
+let ratings = { good: [], hard: [], again: [] };
+
+fetch('data/vocab_n5.json').then(r => r.json()).then(data => { vocabData = data; renderLessons(); });
+
+function renderLessons() {
+  const p = getProgress();
+  const list = document.getElementById('vocab-lesson-list'); list.innerHTML = '';
+  vocabData.lessons.forEach(lesson => {
+    const lp = (p.vocab || {})[lesson.id] || {};
+    const mastered = (lp.mastered || []).length;
+    const total = lesson.words.length;
+    const pct = total > 0 ? Math.round(mastered / total * 100) : 0;
+    const div = document.createElement('div'); div.className = 'vocab-lesson-card'; div.onclick = () => startLesson(lesson.id);
+    div.innerHTML = '<div class="vocab-lesson-info"><div class="vocab-lesson-title">Lesson ' + lesson.id + ': ' + lesson.title + '</div><div class="vocab-lesson-meta">' + total + '단어 · 마스터 ' + mastered + '/' + total + '</div></div><div class="vocab-lesson-pct">' + pct + '%</div><div class="jp-module-bar"><div class="jp-module-bar-fill" style="width:' + pct + '%"></div></div>';
+    list.appendChild(div);
+  });
+}
+
+function startLesson(id) {
+  currentLesson = vocabData.lessons.find(l => l.id === id); if (!currentLesson) return;
+  cards = shuffle([...currentLesson.words]); cardIdx = 0; flipped = false;
+  ratings = { good: [], hard: [], again: [] };
+  document.getElementById('vocab-total').textContent = cards.length;
+  document.getElementById('vocab-result-total').textContent = cards.length;
+  showScreen('vocab-study'); showCard();
+}
+
+function showCard() {
+  flipped = false; const card = cards[cardIdx];
+  document.getElementById('vocab-card').classList.remove('vocab-card-flipped');
+  document.getElementById('vocab-word').textContent = card.word;
+  document.getElementById('vocab-reading').textContent = card.reading !== card.word ? card.reading : '';
+  document.getElementById('vocab-meaning').textContent = card.meaning;
+  document.getElementById('vocab-example').textContent = card.example;
+  document.getElementById('vocab-example-meaning').textContent = card.example_meaning;
+  document.getElementById('vocab-current').textContent = cardIdx + 1;
+  document.getElementById('vocab-mastered-count').textContent = ratings.good.length;
+  document.getElementById('vocab-progress-fill').style.width = (cardIdx / cards.length * 100) + '%';
+  document.getElementById('vocab-rating').style.display = 'none';
+  document.getElementById('vocab-hint').style.display = 'block';
+}
+
+function flipCard() { if (flipped) return; flipped = true; document.getElementById('vocab-card').classList.add('vocab-card-flipped'); document.getElementById('vocab-rating').style.display = 'flex'; document.getElementById('vocab-hint').style.display = 'none'; }
+
+function rateWord(rating) { ratings[rating].push(cards[cardIdx]); cardIdx++; if (cardIdx >= cards.length) finishLesson(); else showCard(); }
+
+function finishLesson() {
+  document.getElementById('vocab-progress-fill').style.width = '100%';
+  document.getElementById('vocab-result-mastered').textContent = ratings.good.length;
+  document.getElementById('result-good-count').textContent = ratings.good.length;
+  document.getElementById('result-hard-count').textContent = ratings.hard.length;
+  document.getElementById('result-again-count').textContent = ratings.again.length;
+  const needReview = [...ratings.hard, ...ratings.again];
+  if (needReview.length > 0) {
+    document.getElementById('vocab-review-section').style.display = 'block';
+    const list = document.getElementById('vocab-review-list'); list.innerHTML = '';
+    needReview.forEach(w => { const item = document.createElement('div'); item.className = 'quiz-wrong-item'; item.innerHTML = '<span class="quiz-wrong-kana">' + w.word + '</span><span class="quiz-wrong-romaji">' + w.meaning + '</span>'; list.appendChild(item); });
+  } else { document.getElementById('vocab-review-section').style.display = 'none'; }
+
+  const p = getProgress(); if (!p.vocab) p.vocab = {};
+  p.vocab[currentLesson.id] = { mastered: ratings.good.map(w => w.word), learning: ratings.hard.map(w => w.word), total_words: cards.length };
+  updateStreak(p); saveProgress(p);
+  showScreen('vocab-result');
+}
+
+function studyAgain() { if (currentLesson) startLesson(currentLesson.id); }
+function backToLessons() { renderLessons(); showScreen('vocab-lessons'); }
+function showScreen(id) { ['vocab-lessons', 'vocab-study', 'vocab-result'].forEach(s => { document.getElementById(s).style.display = s === id ? 'block' : 'none'; }); }
+function shuffle(arr) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('vocab-study').style.display === 'none') return;
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); if (!flipped) flipCard(); }
+  if (flipped) { if (e.key === '1') rateWord('again'); if (e.key === '2') rateWord('hard'); if (e.key === '3') rateWord('good'); }
+});
+</script>
+
+      <footer class="main-footer">2026 JH's Study</footer>
+    </main>
+    <div class="right-margin"></div>
+  </div>
+  <script>function toggleMenu() { document.getElementById('sidebar').classList.toggle('mobile-open'); document.getElementById('overlay').classList.toggle('active'); }</script>
+</body>
+</html>

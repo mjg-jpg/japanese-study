@@ -1,0 +1,145 @@
+{
+  "passages": [
+    {
+      "id": 1,
+      "title": "エレンの決意",
+      "title_ko": "에렌의 결심",
+      "difficulty": "beginner",
+      "source": "進撃の巨人 第1話",
+      "lines": [
+        {
+          "japanese": "その日、人類は思い出した。",
+          "reading": "そのひ、じんるいはおもいだした。",
+          "korean": "그 날, 인류는 떠올렸다.",
+          "vocab": [
+            {"word": "その日", "reading": "そのひ", "meaning": "그 날"},
+            {"word": "人類", "reading": "じんるい", "meaning": "인류"},
+            {"word": "思い出す", "reading": "おもいだす", "meaning": "떠올리다, 기억해내다"}
+          ]
+        },
+        {
+          "japanese": "奴らに支配されていた恐怖を。",
+          "reading": "やつらにしはいされていたきょうふを。",
+          "korean": "그들에게 지배당했던 공포를.",
+          "vocab": [
+            {"word": "奴ら", "reading": "やつら", "meaning": "그 녀석들"},
+            {"word": "支配", "reading": "しはい", "meaning": "지배"},
+            {"word": "恐怖", "reading": "きょうふ", "meaning": "공포"}
+          ]
+        },
+        {
+          "japanese": "鳥籠の中に囚われていた屈辱を。",
+          "reading": "とりかごのなかにとらわれていたくつじょくを。",
+          "korean": "새장 안에 갇혀있던 굴욕을.",
+          "vocab": [
+            {"word": "鳥籠", "reading": "とりかご", "meaning": "새장"},
+            {"word": "中", "reading": "なか", "meaning": "안, 속"},
+            {"word": "囚われる", "reading": "とらわれる", "meaning": "갇히다"},
+            {"word": "屈辱", "reading": "くつじょく", "meaning": "굴욕"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "壁の中の生活",
+      "title_ko": "벽 안의 생활",
+      "difficulty": "beginner",
+      "source": "進撃の巨人 第1話",
+      "lines": [
+        {
+          "japanese": "壁の中は安全です。",
+          "reading": "かべのなかはあんぜんです。",
+          "korean": "벽 안은 안전합니다.",
+          "vocab": [
+            {"word": "壁", "reading": "かべ", "meaning": "벽"},
+            {"word": "安全", "reading": "あんぜん", "meaning": "안전"}
+          ]
+        },
+        {
+          "japanese": "でも、私はここから出たい。",
+          "reading": "でも、わたしはここからでたい。",
+          "korean": "하지만, 나는 여기서 나가고 싶다.",
+          "vocab": [
+            {"word": "でも", "reading": "でも", "meaning": "하지만"},
+            {"word": "出たい", "reading": "でたい", "meaning": "나가고 싶다"}
+          ]
+        },
+        {
+          "japanese": "外の世界を見たいんだ。",
+          "reading": "そとのせかいをみたいんだ。",
+          "korean": "바깥 세상을 보고 싶어.",
+          "vocab": [
+            {"word": "外", "reading": "そと", "meaning": "바깥"},
+            {"word": "世界", "reading": "せかい", "meaning": "세계"},
+            {"word": "見たい", "reading": "みたい", "meaning": "보고 싶다"}
+          ]
+        },
+        {
+          "japanese": "壁の外には何があるんだろう。",
+          "reading": "かべのそとにはなにがあるんだろう。",
+          "korean": "벽 밖에는 무엇이 있을까.",
+          "vocab": [
+            {"word": "何", "reading": "なに", "meaning": "무엇"},
+            {"word": "ある", "reading": "ある", "meaning": "있다 (사물)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "仲間たち",
+      "title_ko": "동료들",
+      "difficulty": "beginner",
+      "source": "進撃の巨人 제2화",
+      "lines": [
+        {
+          "japanese": "エレン、大丈夫？",
+          "reading": "エレン、だいじょうぶ？",
+          "korean": "에렌, 괜찮아?",
+          "vocab": [
+            {"word": "大丈夫", "reading": "だいじょうぶ", "meaning": "괜찮다"}
+          ]
+        },
+        {
+          "japanese": "ミカサはとても強い。",
+          "reading": "ミカサはとてもつよい。",
+          "korean": "미카사는 매우 강하다.",
+          "vocab": [
+            {"word": "とても", "reading": "とても", "meaning": "매우"},
+            {"word": "強い", "reading": "つよい", "meaning": "강하다"}
+          ]
+        },
+        {
+          "japanese": "アルミンは頭がいい。",
+          "reading": "アルミンはあたまがいい。",
+          "korean": "아르민은 머리가 좋다.",
+          "vocab": [
+            {"word": "頭がいい", "reading": "あたまがいい", "meaning": "머리가 좋다, 똑똑하다"}
+          ]
+        },
+        {
+          "japanese": "三人は子供の時からの友達です。",
+          "reading": "さんにんはこどものときからのともだちです。",
+          "korean": "세 사람은 어릴 때부터의 친구입니다.",
+          "vocab": [
+            {"word": "三人", "reading": "さんにん", "meaning": "세 사람"},
+            {"word": "子供", "reading": "こども", "meaning": "아이"},
+            {"word": "時", "reading": "とき", "meaning": "때"},
+            {"word": "友達", "reading": "ともだち", "meaning": "친구"}
+          ]
+        },
+        {
+          "japanese": "一緒に訓練兵団に入った。",
+          "reading": "いっしょにくんれんへいだんにはいった。",
+          "korean": "함께 훈련병단에 들어갔다.",
+          "vocab": [
+            {"word": "一緒に", "reading": "いっしょに", "meaning": "함께"},
+            {"word": "訓練兵団", "reading": "くんれんへいだん", "meaning": "훈련병단"},
+            {"word": "入る", "reading": "はいる", "meaning": "들어가다"}
+          ]
+        }
+      ]
+    }
+  ]
+}

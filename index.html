@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日本語 学習 — JH's Study</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="mobile-header">
+    <a href="index.html" class="site-title">日本語 学習</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="menu">menu</button>
+  </div>
+  <div class="mobile-overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <div class="page-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="ribbon"></div>
+      <div class="sidebar-header">
+        <a href="index.html" class="site-title">日本語 学習</a>
+        <div class="site-subtitle">진격의 거인 원서 읽기</div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link">대시보드</a>
+        <a href="quiz.html" class="nav-link">かな Quiz</a>
+        <a href="vocab.html" class="nav-link">단어장</a>
+        <a href="grammar.html" class="nav-link">문법</a>
+        <a href="reading.html" class="nav-link">읽기</a>
+      </nav>
+      <div class="sidebar-footer">2026 JH's Study</div>
+    </aside>
+
+    <main class="main-content">
+
+<h1 class="page-heading">日本語 学習</h1>
+<p class="page-description">목표: 진격의 거인 원서 읽기</p>
+
+<div class="jp-stats">
+  <div class="jp-stat-card">
+    <div class="jp-stat-number" id="stat-streak">0</div>
+    <div class="jp-stat-label">연속 학습일</div>
+  </div>
+  <div class="jp-stat-card">
+    <div class="jp-stat-number" id="stat-sessions">0</div>
+    <div class="jp-stat-label">총 학습 횟수</div>
+  </div>
+  <div class="jp-stat-card">
+    <div class="jp-stat-number" id="stat-kana">0</div>
+    <div class="jp-stat-label">가나 마스터</div>
+  </div>
+  <div class="jp-stat-card">
+    <div class="jp-stat-number" id="stat-vocab">0</div>
+    <div class="jp-stat-label">단어 학습</div>
+  </div>
+</div>
+
+<div class="jp-roadmap">
+  <h2 class="jp-section-title">학습 로드맵</h2>
+
+  <div class="jp-module" id="module-kana">
+    <div class="jp-module-header">
+      <div class="jp-module-icon">あ</div>
+      <div class="jp-module-info">
+        <div class="jp-module-title">Step 1: 히라가나 · 가타카나</div>
+        <div class="jp-module-desc">일본어의 기본 문자를 익히세요</div>
+      </div>
+      <div class="jp-module-progress" id="kana-progress">0%</div>
+    </div>
+    <div class="jp-module-bar"><div class="jp-module-bar-fill" id="kana-bar" style="width:0%"></div></div>
+    <div class="jp-module-actions">
+      <a href="quiz.html" class="btn btn-primary jp-module-btn">퀴즈 시작</a>
+    </div>
+  </div>
+
+  <div class="jp-module" id="module-vocab">
+    <div class="jp-module-header">
+      <div class="jp-module-icon">漢</div>
+      <div class="jp-module-info">
+        <div class="jp-module-title">Step 2: JLPT N5 단어</div>
+        <div class="jp-module-desc">기초 단어를 플래시카드로 암기</div>
+      </div>
+      <div class="jp-module-progress" id="vocab-progress">0%</div>
+    </div>
+    <div class="jp-module-bar"><div class="jp-module-bar-fill" id="vocab-bar" style="width:0%"></div></div>
+    <div class="jp-module-actions">
+      <a href="vocab.html" class="btn btn-primary jp-module-btn">단어장 시작</a>
+    </div>
+  </div>
+
+  <div class="jp-module" id="module-grammar">
+    <div class="jp-module-header">
+      <div class="jp-module-icon">文</div>
+      <div class="jp-module-info">
+        <div class="jp-module-title">Step 3: N5 문법</div>
+        <div class="jp-module-desc">기초 문법 패턴 20개</div>
+      </div>
+      <div class="jp-module-progress" id="grammar-progress">0%</div>
+    </div>
+    <div class="jp-module-bar"><div class="jp-module-bar-fill" id="grammar-bar" style="width:0%"></div></div>
+    <div class="jp-module-actions">
+      <a href="grammar.html" class="btn btn-primary jp-module-btn">문법 학습</a>
+    </div>
+  </div>
+
+  <div class="jp-module" id="module-reading">
+    <div class="jp-module-header">
+      <div class="jp-module-icon">📖</div>
+      <div class="jp-module-info">
+        <div class="jp-module-title">Step 4: 읽기 연습</div>
+        <div class="jp-module-desc">진격의 거인 발췌문 읽기</div>
+      </div>
+      <div class="jp-module-progress" id="reading-progress">0%</div>
+    </div>
+    <div class="jp-module-bar"><div class="jp-module-bar-fill" id="reading-bar" style="width:0%"></div></div>
+    <div class="jp-module-actions">
+      <a href="reading.html" class="btn btn-primary jp-module-btn">읽기 시작</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// localStorage 기반 진도 관리
+function getProgress() {
+  try { return JSON.parse(localStorage.getItem('jp_progress') || '{}'); } catch(e) { return {}; }
+}
+
+const p = getProgress();
+
+// 스탯
+document.getElementById('stat-streak').textContent = (p.stats || {}).streak_days || 0;
+document.getElementById('stat-sessions').textContent = (p.stats || {}).total_sessions || 0;
+
+// 가나
+let kanaMastered = 0;
+const kanaTotal = 208;
+Object.values(p.kana || {}).forEach(k => {
+  kanaMastered += (k.mastered || []).length;
+});
+document.getElementById('stat-kana').textContent = kanaMastered + '/' + kanaTotal;
+const kanaPercent = Math.round(kanaMastered / kanaTotal * 100);
+document.getElementById('kana-progress').textContent = kanaPercent + '%';
+document.getElementById('kana-bar').style.width = kanaPercent + '%';
+
+// 단어
+let vocabMastered = 0;
+let vocabTotal = 0;
+Object.values(p.vocab || {}).forEach(v => {
+  vocabMastered += (v.mastered || []).length;
+  vocabTotal += v.total_words || 0;
+});
+document.getElementById('stat-vocab').textContent = vocabMastered;
+if (vocabTotal > 0) {
+  const vocabPercent = Math.round(vocabMastered / vocabTotal * 100);
+  document.getElementById('vocab-progress').textContent = vocabPercent + '%';
+  document.getElementById('vocab-bar').style.width = vocabPercent + '%';
+}
+
+// 문법
+const grammarCompleted = Object.keys(p.grammar || {}).length;
+const grammarTotal = 4;
+const grammarPercent = Math.round(grammarCompleted / grammarTotal * 100);
+document.getElementById('grammar-progress').textContent = grammarPercent + '%';
+document.getElementById('grammar-bar').style.width = grammarPercent + '%';
+
+// 읽기
+const readingCompleted = Object.keys(p.reading || {}).length;
+const readingTotal = 3;
+const readingPercent = Math.round(readingCompleted / readingTotal * 100);
+document.getElementById('reading-progress').textContent = readingPercent + '%';
+document.getElementById('reading-bar').style.width = readingPercent + '%';
+</script>
+
+      <footer class="main-footer">2026 JH's Study</footer>
+    </main>
+    <div class="right-margin"></div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('mobile-open');
+      document.getElementById('overlay').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
